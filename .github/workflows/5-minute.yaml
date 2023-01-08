@@ -10,5 +10,7 @@ jobs:
     container:
       image: pjlanger/hawtwheelz:latest
     steps:
+      - name: List files
+        run: ls
       - name: Read public CitiBike JSON feed
         run: python json_status_read.py
