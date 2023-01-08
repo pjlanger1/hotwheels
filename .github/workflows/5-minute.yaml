@@ -1,9 +1,8 @@
 name: 5-minute schedule
 
 on:
-  push:
   schedule:
-    - cron: '* * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   some-job:
