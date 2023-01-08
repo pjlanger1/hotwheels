@@ -1,0 +1,10 @@
+on:
+  schedule:
+    - cron: '* * * * *'
+
+jobs:
+  some-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Every time
+        run: echo "This step will always run"
