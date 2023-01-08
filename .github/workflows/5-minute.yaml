@@ -11,5 +11,8 @@ jobs:
       image: pjlanger/hawtwheelz:latest
     steps:
       - name: Read public CitiBike JSON feed
-        run: python json_status_read.py
+        run: |
+          git config --global user.email "system@hawtwheelz"
+          git config --global user.name "Hawtwheelz"
+          python json_status_read.py
         working-directory: /code
