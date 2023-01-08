@@ -10,11 +10,6 @@ jobs:
     container:
       image: pjlanger/hawtwheelz:latest
     steps:
-      - name: Where am I?
-        run: pwd
-      - name: List files
-        run: ls
-        working-directory: /code
       - name: Read public CitiBike JSON feed
         run: python json_status_read.py
         working-directory: /code

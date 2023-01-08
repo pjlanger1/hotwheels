@@ -9,7 +9,9 @@ run:
 	docker run -it -v $(PWD)/csv:/input $(IMAGE_NAME)
 
 shell:
-	docker run -it -v $(PWD)/csv:/input $(IMAGE_NAME) bash
+	docker run -it -v $(PWD)/csv:/input -e HAWTWHEELZ_GITHUB_TOKEN=$(HAWTWHEELZ_GITHUB_TOKEN) $(IMAGE_NAME) bash
 
-json-status-read:
-	docker run -it -v $(PWD)/csv:/input $(IMAGE_NAME) python json_status_read.py
+system-status:
+    # don't forget to run `source .env`
+	docker run -it -v $(PWD)/csv:/input -e HAWTWHEELZ_GITHUB_TOKEN=$(HAWTWHEELZ_GITHUB_TOKEN) $(IMAGE_NAME) python json_status_read.py
+	# don't forget to run `source .env`
