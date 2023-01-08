@@ -49,4 +49,4 @@ si_2, df_2 = call_station_info(dict_var)
 si, df = call_station_status(dict_var)
 
 from pprint import pprint
-print(df.head(10))
+pprint(df.head(10))
