@@ -17,5 +17,5 @@ jobs:
           git config --global user.name "Hawtwheelz"
           python json_status_read.py
         env:
-          HAWTWHEELZ_GITHUB_TOKEN: $HAWTWHEELZ_GITHUB_TOKEN
+          HAWTWHEELZ_GITHUB_TOKEN: ${{ secrets.HAWTWHEELZ_GITHUB_TOKEN }}
         working-directory: /code
