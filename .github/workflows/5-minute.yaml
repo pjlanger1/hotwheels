@@ -10,5 +10,5 @@ jobs:
     container:
       image: pjlanger/hawtwheelz:latest
     steps:
-      - name: Every time
-        run: echo "Testing container usage"
+      - name: Read public CitiBike JSON feed
+        run: python json_status_read.py
