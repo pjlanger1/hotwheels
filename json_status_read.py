@@ -1,9 +1,11 @@
+import json
 import pandas as pd
 import numpy as np
-from matplotlib import pyplot as plt
 import geopy
+import urllib.request, json
+from pprint import pprint
+from matplotlib import pyplot as plt
 from dateutil import tz
-import urllib.request, json 
 from datetime import datetime, timedelta
 
 json_master = 'http://gbfs.citibikenyc.com/gbfs/gbfs.json'
@@ -45,8 +47,13 @@ def call_station_status(dict_var):
         df['lr_timestamp_loc'] = df['last_reported'].apply(lambda x: datetime.utcfromtimestamp(int(str(x))).replace(tzinfo=from_zone).astimezone(to_zone).strftime('%Y-%m-%d %H:%M:%S'))
     return station_index, df
 
-si_2, df_2 = call_station_info(dict_var)
-si, df = call_station_status(dict_var)
 
-from pprint import pprint
-pprint(df.head(10))
+def main():
+    si_2, df_2 = call_station_info(dict_var)
+    si, df = call_station_status(dict_var)
+
+    df.to_json("/tmp/output.json")
+    with open("/tmp/output.json") as output_file:
+        print(output_file.read())
+
+main()
