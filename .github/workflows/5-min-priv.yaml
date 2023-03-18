@@ -36,4 +36,4 @@ jobs:
 
         env:
           HAWTWHEELZ_GITHUB_TOKEN: ${{ secrets.HAWTWHEELZ_GITHUB_TOKEN }}
-        working-directory: /data
+        #working-directory: /data
