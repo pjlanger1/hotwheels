@@ -3,7 +3,8 @@ name: 5-min-priv
 on:
   schedule:
     #- cron: '*/5 5-23 * * *'
-    - cron: '*/5 * * * *'
+    #- cron: '*/5 * * * *'
+    - cron: '0 12 * * *'
 
 jobs:
   build:
