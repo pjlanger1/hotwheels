@@ -43,4 +43,4 @@ jobs:
           
         env:
           HAWTWHEELZ_GITHUB_TOKEN: ${{ secrets.HAWTWHEELZ_GITHUB_TOKEN }}
-        working-directory: /code
+        #working-directory: /code
