@@ -2,12 +2,11 @@ name: 5-min-priv
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '* * * * *'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
     steps:
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content
