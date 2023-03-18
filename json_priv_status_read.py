@@ -12,7 +12,7 @@ for g in a['features']:
     dest[g['properties']['terminal']] = g['properties']
 
     
-dest_json = json.dump(dest)    
+#dest_json = json.dump(dest)    
 
 os.chdir('/tmp')
 os.system(f'git clone https://{GITHUB_TOKEN}@github.com/pjlanger1/hotwheels.git')
