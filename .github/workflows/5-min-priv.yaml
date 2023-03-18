@@ -5,10 +5,10 @@ on:
     - cron: '*/5 * * * *'
 
 jobs:
-  some-job:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Read public CitiBike JSON feed
+      - name: Read private CitiBike JSON feed
         run: |
           git config --global user.email "system@hawtwheelz"
           git config --global user.name "Hawtwheelz"
