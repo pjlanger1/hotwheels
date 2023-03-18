@@ -3,8 +3,8 @@ name: 5-min-priv
 on:
   schedule:
     #- cron: '*/5 5-23 * * *'
-    #- cron: '*/5 * * * *'
-    - cron: '0 12 * * *'
+    - cron: '*/5 * * * *'
+    #- cron: '0 12 * * *'
 
 jobs:
   build:
@@ -27,12 +27,20 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install requests
+      
+      - name: runcode
+        run: |
+          python json_priv_status_read.py
 
       - name: Read private CitiBike JSON feed
         run: |
-          git config --local user.email "system@hawtwheelz"
-          git config --local user.name "Hawtwheelz"
-          python json_priv_status_read.py
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          timestamp=$(date -u)
+          git commit -m "Latest data: ${timestamp}" || exit 0
+          git push
+          
         env:
           HAWTWHEELZ_GITHUB_TOKEN: ${{ secrets.HAWTWHEELZ_GITHUB_TOKEN }}
         working-directory: /code
