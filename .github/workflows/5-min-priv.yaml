@@ -2,8 +2,8 @@ name: 5-min-priv
 
 on:
   schedule:
-    - cron: '*/5 5-23 * * *'
-    #- cron: '*/5 * * * *'
+    #- cron: '*/5 5-23 * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   build:
@@ -29,8 +29,8 @@ jobs:
 
       - name: Read private CitiBike JSON feed
         run: |
-          git config --global user.email "system@hawtwheelz"
-          git config --global user.name "Hawtwheelz"
+          git config --local user.email "system@hawtwheelz"
+          git config --local user.name "Hawtwheelz"
           python json_priv_status_read.py
         env:
           HAWTWHEELZ_GITHUB_TOKEN: ${{ secrets.HAWTWHEELZ_GITHUB_TOKEN }}
