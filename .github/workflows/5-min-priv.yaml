@@ -1,1 +1,18 @@
-*/5 * * * *
+name: 5-min-priv
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  some-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read public CitiBike JSON feed
+        run: |
+          git config --global user.email "system@hawtwheelz"
+          git config --global user.name "Hawtwheelz"
+          python json_priv_status_read.py
+        env:
+          HAWTWHEELZ_GITHUB_TOKEN: ${{ secrets.HAWTWHEELZ_GITHUB_TOKEN }}
+        working-directory: /code
