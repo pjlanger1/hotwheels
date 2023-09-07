@@ -2,8 +2,10 @@ name: 5-minute schedule
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
-
+    -cron: `0 0 99 99 * ?`
+  #changing the schedule to something that will never run, decom as of 8/1
+    #- cron: '*/5 * * * *'
+    
 jobs:
   some-job:
     runs-on: ubuntu-latest
